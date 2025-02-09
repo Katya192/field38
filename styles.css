@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    margin: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border 0.3s ease; /* Плавный переход для границы */
+    border: 1px solid #ccc; /* Исходная граница */
+}
+
+/* Эффект при наведении на input */
+input:hover {
+    border: 1.5px solid green; /* Изменение цвета и ширины границы при наведении */
+    outline: none; /* Убираем стандартное выделение */
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+
+input, select, button {
+    margin: 10px 0;
+    padding: 10px;
+    width: calc(100% - 24px);
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+button {
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+button:hover {
+    background-color: darkgreen;
+}
+#results {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+.inline {
+    display: flex;
+    justify-content: space-between;
+}
+.inline input {
+    width: calc(48% - 10px);
+}
+#clearButton {
+    border: 2px solid #4CAF50;
+    background-color: transparent;
+    color: #4CAF50;
+}
+
+#clearButton:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+
+
+.nav-button {
+    color: white; /* Цвет текста и иконок */
+    background: none; /* Убираем фон кнопок */
+    border: none; /* Убираем рамку */
+    cursor: pointer; /* Курсор в виде указателя */
+    font-size: 16px; /* Размер шрифта */
+    transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+}
+
+.nav-button:hover {
+    background-color: #28a745; /* Зеленый фон при наведении */
+    color: white; /* Цвет текста остается белым */
+    border-radius: 5px; /* Закругление углов кнопки */
+    padding: 5px 10px; /* Отступы для кнопки */
+}
+
+

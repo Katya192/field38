@@ -1,0 +1,323 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор нормы высева_38</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .header {
+            position: fixed; /* Фиксируем хедер */
+            top: 0;
+            left: 0%; /* Устанавливаем отступ слева, чтобы центрировать */
+            right: 0%; /* Устанавливаем отступ справа */
+            width: 100%; /* Устанавливаем ширину хедера */
+            background-color: #036e60;
+            padding: 0px; /* Исправляем паддинг на положительное значение */
+            display: flex;
+            justify-content: space-around;
+            border-radius: 0 0 5px 5px;
+            z-index: 1000; /* Устанавливаем z-index для хедера */
+        }
+
+        .nav-button {
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            padding: 5px 10px; /* Увеличиваем паддинг для кнопок */
+            position: relative; /* Для позиционирования выпадающего меню */
+        }
+
+        .nav-button:hover, .nav-button.active {
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .dropdown {
+            position: relative; /* Для позиционирования выпадающего меню */
+        }
+
+        .dropdown-content {
+            display: none; /* Скрываем выпадающее меню по умолчанию */
+            position: absolute; /* Позиционируем относительно кнопки */
+            background-color: white;
+            min-width: 160px; /* Ширина выпадающего меню */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1; /* Чтобы меню было поверх других элементов */
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block; /* Показываем меню при наведении */
+        }
+
+        .dropdown-content a {
+            color: #036e60;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1; /* Цвет фона при наведении на элемент меню */
+        }
+
+        .container {
+            max-width: 600px; /* Увеличиваем ширину контейнера */
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 70px; /* Увеличиваем отступ сверху, чтобы избежать перекрытия с фиксированным хедером */
+        }
+
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px; /* Уменьшаем отступ снизу */
+        }
+
+        h3 {
+            color: #2c3e50;
+            margin-top: 25px; /* Устанавливаем отступ сверху */
+            margin-bottom: 5px; /* Уменьшаем отступ снизу */
+        }
+
+        .input-container {
+            display: flex;
+            gap: 20px;
+            margin: -5px 0;
+        }
+
+        .input-box {
+            position: relative;
+            width: 100%; /* Убедитесь, что ширина 100% для контейнера */
+            margin-top: 20px;
+        }
+
+        /* Новое правило для поля "Культура" */
+        #crop {
+            width: 100%; /* Увеличиваем ширину поля "Культура" */
+            padding: 10px; /* Добавляем паддинг для удобства */
+            box-sizing: border-box; /* Чтобы паддинг не увеличивал ширину */
+        }
+
+        .hover-effect {
+            padding: 15px;
+            padding-top: 25px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            height: 50px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .hover-effect:focus {
+            border-color: #666;
+            outline: none;
+        }
+
+        .input-label {
+            margin-bottom: 15px;
+            position: absolute;
+            left: 8px;
+            top: 15%;
+            transform: translateY(-50%);
+            color: #080808;
+            transition: 0.2s ease all;
+            pointer-events: none;
+        }
+
+        .required-star {
+            color: red;
+            font-size: 18px;
+            margin-left: 5px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border 0.3s ease; /* Плавный переход для границы */
+            border: 1px solid #ccc; /* Исходная граница */
+        }
+
+        input:hover {
+            border: 1.5px solid green; /* Изменение цвета и ширины границы при наведении */
+            outline: none; /* Убираем стандартное выделение */
+        }
+
+        .hover-effect:focus + .input-label,
+        .hover-effect:not(:placeholder-shown) + .input-label {
+            top: -10px;
+            left: 10px;
+            font-size: 12px;
+            color: #333;
+        }
+
+        .inline {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .inline input {
+            width: calc(90% - 10px);
+        }
+
+        button {
+            margin: 20px 5px; /* Уменьшаем отступы между кнопками */
+            padding: 10px;
+            border-radius: 20px; /* Закругление кнопок */
+            border: 1px solid #ccc;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+            width: 48%; /* Устанавливаем ширину кнопок */
+            transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        #clearButton {
+            border: 2px solid #4CAF50;
+            background-color: transparent;
+            color: #4CAF50;
+            border-radius: 20px; /* Закругление кнопки очистки */
+        }
+
+        #clearButton:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #results {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4px;
+            background: #036e60;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <button class="nav-button active" onclick="window.location.href='проект.html'">
+            <i class="fas fa-calculator"></i> Калькулятор
+        </button>
+        <div class="dropdown">
+            <button class="nav-button dropdown">
+                <i class="fas fa-book"></i> Справочник
+            </button>
+            <div class="dropdown-content">
+                <a href="абиотичекие.html">Абиотические условия региона</a>
+                <a href="разнообразие.html">Разнообразие сельскохозяйственных культур</a>
+                <a href="технология.html">Технологии возделывания зерновых культур</a>
+                <a href="норма.html">Норма высева семян</a>
+            </div>
+        </div>
+        <button class="nav-button" onclick="window.location.href='lam1.html'">
+            <i class="fas fa-cogs"></i> Метод решения
+        </button>
+    </div>
+    
+    <div class="container">
+        
+        <h2>Калькулятор нормы высева семян</h2>
+        
+        <h3><i class="fas fa-seedling"></i> <!-- Иконка растения -->  Посевное качество семян:</h3>
+        <div class="input-container">
+            <div class="input-box">
+                <label for="seedWeight" class="input-label">Масса тысяч семян (гр)<span class="required-star">*</span></label>
+                <input type="number" id="seedWeight" class="hover-effect" placeholder="Введите массу семян" required>
+            </div>
+            <div class="input-box">
+                <label for="purity" class="input-label">Чистота семян (%):<span class="required-star">*</span></label>
+                <input type="number" id="purity" class="hover-effect" placeholder="Введите чистоту семян" required>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <div class="input-box">
+                <label for="germination" class="input-label">Лабораторная всхожесть (%):<span class="required-star">*</span></label>
+                <input type="number" id="germination" class="hover-effect" placeholder="Введите всхожесть" required> 
+            </div>
+        </div>
+
+        <h3>  <i class="fas fa-tractor"></i> <!-- Иконка поля --> Параметры поля:</h3>
+        <div class="input-container">
+            <div class="input-box">
+                <label for="crop" class="input-label">Культура:<span class="required-star">*</span></label>
+                <select id="crop" class="hover-effect" required>
+                    <option value="" disabled selected>Выберите культуру</option>
+                    <option value="пшеница">Пшеница</option>
+                    <option value="ячмень">Ячмень</option>
+                    <option value="рожь">Рожь</option>
+                    <option value="овёс">Овёс</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <div class="input-box">
+                <label for="fieldArea" class="input-label">Площадь поля (га):<span class="required-star">*</span></label>
+                <input type="number" id="fieldArea" class="hover-effect" placeholder="Введите площадь поля" required>
+            </div>
+        </div>
+
+        <h3>Рекомендуемая норма высева в миллионах штук</h3>
+        <div class="inline">
+            <div>
+                <label for="normFrom">От:</label>
+                <input type="number" id="normFrom" placeholder="Введите норму от" required>
+            </div>
+            <div>
+                <label for="normTo">До:</label>
+                <input type="number" id="normTo" placeholder="Введите норму до" required>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between;">
+            <button id="calculateButton">Рассчитать</button>
+            <button id="clearButton">Очистить</button>
+        </div>
+
+        <h3>Результаты</h3>
+        <div id="results"></div>
+    </div> 
+
+    <script src="script.js"></script>
+    <script src="поле.js"></script>
+    <footer>
+        <p>&copy; 2024 Норма высева семян. ИрГАУ</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор нормы высева_38</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .header {
+            position: fixed; /* Фиксируем хедер */
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #036e60;
+            padding: 15px;
+            display: flex;
+            justify-content: space-around;
+            border-radius: 0 0 5px 5px;
+            z-index: 1000; /* Устанавливаем z-index для хедера */
+        }
+        .nav-button {
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            padding: 10px 15px; /* Увеличиваем паддинг для кнопок */
+        }
+        .nav-button:hover, .nav-button.active {
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+        }
+        /* Добавляем стиль для выделенной кнопки "Справочник" */
+        .nav-button.active {
+            background-color: #28a745; /* Цвет фона для выделенной кнопки */
+            color: white; /* Цвет текста для выделенной кнопки */
+        }
+    
+        .container {
+            width: 70%; /* Увеличиваем ширину контейнера */
+            margin: 80px auto; /* Увеличиваем верхний отступ для контейнера */
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: justify; /* Текст по ширине */
+            text-indent: 1.25em; /* Отступ для текста */
+        }
+       
+        footer {
+            text-align: center;
+            padding: 5px;
+            background: #036e60;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        /* Стили для выпадающего списка в справочнике */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+         h2 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+         h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        p {
+            line-height: 1.6;
+        }
+        table {
+            width: 50%; /* Устанавливаем фиксированную ширину для таблицы */
+            margin: 20px auto; /* Центрируем таблицу */
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e1e1e1;
+            text-align: center; /* Центрируем текст в заголовках */
+        }
+        .formula {
+            text-align: center; /* Центрируем формулы */
+            margin: 10px 0; /* Добавляем отступы */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <button class="nav-button" onclick="window.location.href='проект.html'">
+            <i class="fas fa-calculator"></i> Калькулятор
+        </button>
+        <div class="dropdown">
+            <button class="nav-button active"> <!-- Добавляем класс active -->
+                <i class="fas fa-book"></i> Справочник
+            </button>
+            <div class="dropdown-content">
+                <a href="абиотичекие.html">Абиотические условия региона</a>
+                <a href="разнообразие.html">Разнообразие сельскохозяйственных культур</a>
+                <a href="технология.html">Технологии возделывания зерновых культур</a>
+                <a href="норма_высева.html">Норма высева семян</a>
+            </div>
+        </div>
+        <button class="nav-button" onclick="window.location.href='lam1.html'">
+            <i class="fas fa-cogs"></i> Метод решения
+        </button>
+    </div>
+
+    <div class="container">
+        <h2>Расчет нормы высева семян</h2>
+        <p>Норма высева семян – это такое количество семян, возделываемых на 1 гектаре, которые обеспечивают полноценный урожай. Норму высева выражают числом всхожих семян (в миллионах штук) и массой семян (в кг).</p>
+        <p>Норма высева семян зависит от множества факторов: от цели возделывания растений; качества посевного материала; способов посева; климатических условий; состояния почв; имеющихся в распоряжении хозяйства оборудования (сеялок).</p>
+        <p>Для одной и той же возделываемой культуры норма высева может отличаться. При выращивании культуры на силос, нормы высева будут выше, чем при выращивании на зерно. В южных районах страны нормы высева ниже по сравнению с северными регионами.</p>
+        
+        <h3>Таблица 1 - Нормы высева семян зерновых и зернобобовых сельскохозяйственных культур</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Наименование культуры</th>
+                    <th>Норма высева семян, ц/га</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Пшеница</td>
+                    <td>2,5</td>
+                </tr>
+                <tr>
+                    <td>Ячмень</td>
+                    <td>2,3</td>
+                </tr>
+                <tr>
+                    <td>Овес</td>
+                    <td>2,2</td>
+                </tr>
+                <tr>
+                    <td>Гречиха</td>
+                    <td>0,6</td>
+                </tr>
+                <tr>
+                    <td>Вика</td>
+                    <td>1,5</td>
+                </tr>
+                <tr>
+                    <td>Горох</td>
+                    <td>2,9</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Норму высева семян в хозяйствах, как правило, рассчитывают штучно-весовым методом. Расчет проводят на основании полученных результатов определения посевных качеств семян.</p>
+        <p>Норму высева зерновых культур, кг/га, определяют по формуле:</p>
+        <p class="formula"><strong>H = (M * K * 100) / Гп</strong> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;(1),</p>
+        <p>где М - масса 1000 семян, г; К — число всхожих семян на 1 га, млн шт.; Гп – посевная годность семян, %.</p>
+        <p>Посевная годность семян, %, определяется по формуле:</p>
+        <p class="formula"><strong>Гп = (B * Ч) / 100</strong> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2),</p>
+        <p>где В – лабораторная всхожесть семян, %; Ч - чистота семян, %.</p>
+        <p>Потребность в семенах определяют умножением нормы высева на площадь посева, а их стоимость – умножением потребности на среднюю цену семян, предназначенных для посева.</p>
+        <p>Норму высева семян рассчитывают с учетом обеспеченности оптимальной густоты растений на 1 га; она зависит от сорта, посевных качеств семян, сроков и способов посева, характера почвы, предшественников и других условий.</p>
+        <p>Озимые сильнее кустятся, чем яровые зерновые, поэтому нормы высева в увлажненных районах несколько выше, чем в засушливых. Рекомендуется увеличивать норму на 15-25% при посеве на паровых полях, орошаемых землях, при узкорядном и перекрестном способах сева, а также в случаях запоздания с посевом.</p>
+        <p>Уменьшают нормы высева на более плодородных почвах и при внесении повышенных норм удобрений, которые способствуют более сильному кущению. Необоснованное снижение норм высева, как и завышение, приводит к недобору урожая, поэтому установление правильных норм – один из важных агротехнических приемов.</p>
+        <p>Весовую норму высева определяют исходя из данных о массе 1000 семян, заданного количества всхожих семян на 1 га, чистоты и всхожести семян.</p>
+        <p>При определении нормы высева по отдельным партиям семян применительно к конкретным условиям в каждом сельскохозяйственном предприятии составляют таблицу хозяйственной годности.</p>
+        <p>В указанные нормы высева необходимо внести поправки на полевую всхожесть семян, которая всегда ниже лабораторной и в основном зависит от сроков сева, температуры и влажности почвы.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Норма высева семян. ИрГАУ</p>
+    </footer>
+
+</body>
+</html>

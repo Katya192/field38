@@ -1,0 +1,210 @@
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор нормы высева_38</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .header {
+            position: fixed; /* Фиксируем хедер */
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #036e60;
+            padding: 15px;
+            display: flex;
+            justify-content: space-around;
+            border-radius: 0 0 5px 5px;
+            z-index: 1000; /* Устанавливаем z-index для хедера */
+        }
+        .nav-button {
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            padding: 10px 15px; /* Увеличиваем паддинг для кнопок */
+        }
+        .nav-button:hover, .nav-button.active {
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+        }
+        .container {
+            width: 70%; /* Увеличиваем ширину контейнера */
+            margin: 80px auto; /* Увеличиваем верхний отступ для контейнера */
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: justify; /* Текст по ширине */
+            text-indent: 1.25em; /* Отступ для текста */
+        }
+        h1, h2 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        h3, h4, h5 { color: #2c3e50;
+            text-align: center;
+        }
+        table {
+            width: 80%; /* Установите ширину таблицы */
+            border-collapse: collapse;
+            margin: 20px auto; /* Центрирование таблицы */
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .formula {
+            background: #e7f3fe;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: left; /* Центрирование формул */
+        }
+        .example {
+            background: #e7ffe7;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 5px;
+            background: #036e60;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        /* Стили для выпадающего списка в справочнике */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <button class="nav-button" onclick="window.location.href='проект.html'">
+            <i class="fas fa-calculator"></i> Калькулятор
+        </button>
+        <div class="dropdown">
+            <button class="nav-button">
+                <i class="fas fa-book"></i> Справочник
+            </button>
+            <div class="dropdown-content">
+                <a href="абиотичекие.html">Абиотические условия региона</a>
+                <a href="разнообразие.html">Разнообразие сельскохозяйственных культур</a>
+                <a href="технология.html">Технологии возделывания зерновых культур</a>
+                <a href="норма.html">Норма высева семян</a>
+            </div>
+        </div>
+        <button class="nav-button active" onclick="window.location.href='lam1.html'">
+            <i class="fas fa-cogs"></i> Метод решения
+        </button>
+    </div>
+
+    <div class="container">
+        <h2>Метод решения</h2>
+        <p>Норма высева семян – это такое количество семян, возделываемых на 1 гектаре, которые обеспечивают полноценный урожай. Норму высева выражают числом всхожих семян (в миллионах штук) и массой семян (в кг).</p>
+
+        <div class="formula">
+            <h3>Формулы</h3>
+            <p> Норму высева зерновых культур, кг/га, определяют по формуле:</p>
+            <h4><strong>H = (M ∙ K ∙ 100) / Гп &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1),</strong></h4>
+            <p>где <strong>M</strong> - масса 1000 семян, г; <strong>K</strong> – коэффициент высева (число млн. всхожих семян на 1 га); <strong>Гп</strong> – посевная годность семян, %.</p>
+            
+            <p> Посевная годность семян, %:</p>
+            <h4><strong>Гп = (B ∙ Ч) / 100 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;(2),</strong></h4>
+            <p>где <strong>B</strong> – лабораторная всхожесть семян, %; <strong>Ч</strong> - чистота семян, %.</p>
+            
+            <p> Весовая норма высева на поле рассчитывается по формуле:</p>
+            <h4><strong>A = S ∙ H &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3),</strong></h4>
+            <p>где <strong>S</strong> – площадь; <strong>H</strong> – норма высева.</p>
+        </div>
+        <p>Ниже представлена таблица из приказа министерства сельского хозяйства Иркутской области от 17 февраля 2023 года № 57-7-мпр (таб. 1).</p>
+        <h5>Таблица 1 - Нормы высева семян зерновых и зернобобовых сельскохозяйственных культур</h5>
+        <table>
+            <tr>
+                <th>Наименование культуры</th>
+                <th>Норма высева семян, ц/га</th>
+            </tr>
+            <tr>
+                <td>Пшеница</td>
+                <td>2,5</td>
+            </tr>
+            <tr>
+                <td>Ячмень</td>
+                <td>2,3</td>
+            </tr>
+            <tr>
+                <td>Овес</td>
+                <td>2,2</td>
+            </tr>
+            <tr>
+                <td>Гречиха</td>
+                <td>0,6</td>
+            </tr>
+            <tr>
+                <td>Вика</td>
+                <td>1,5</td>
+            </tr>
+            <tr>
+                <td>Горох</td>
+                <td>2,9</td>
+            </tr>
+        </table>
+
+        <div class="example">
+            <h3>Пример расчета</h3>
+            <p>Рассчитаем весовую норму высева семян пшеницы яровой на примере хозяйства СПОК «Бий-Хем», в котором: Чистота семян – 98,8 %; Всхожесть семян – 93 %; Масса 1000 семян – 41,8 г; Число миллионов чистых и всхожих семян – 4,5.</p>
+            <p>Рассчитаем поправку на фактическую посевную годность: </p>
+            <p>  1) Гп = 98,8 * 93 / 100 = 91 %.</p>
+            <p>Рассчитаем норму высева семян при посевной годности 91%:</p> 
+            <p> 2) Н = (41,8 * 4,5 * 100) / 91 = 206 кг/га. </p>
+            <p>Таким образом, норма высева будет 206 кг/га.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Норма высева семян. ИрГАУ</p>
+    </footer>
+
+</body>
+</html>
